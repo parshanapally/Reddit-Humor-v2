@@ -22,11 +22,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
-// const store = createStore(
-//   rootReducer,
-//   compose(
-//     applyMiddleware(thunk, reactRouterMiddleware),
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-//   )
-// );
