@@ -8,16 +8,24 @@ const Buttons = props => {
   const id = props.image && props.image.id;
 
   return (
-    <main
-      color="white"
-      className="user-buttons relative justify-center flex items-center pa4"
-    >
+    <div className="menu">
       <icon.ThumbsUp
-        className="like grow mr5"
+        size={35}
+        className="like grow mr1"
         onClick={() => props.like(props.image.id)}
       />
-      <h2 className="mh5">{props.likes[id]}</h2>
+
+      <h1 className="mh1">{props.likes[id]}</h1>
+
+      <icon.ThumbsDown
+        size={35}
+        className="dislike grow mr1"
+        onClick={() => props.dislike(props.image.id)}
+      />
+      <h1 className="mh1">{props.dislikes[id]}</h1>
+
       <icon.AlertTriangle
+        size={35}
         className="nsfw grow link mh5"
         onClick={() => {
           props.nsfw(props.image.id);
@@ -26,7 +34,9 @@ const Buttons = props => {
           );
         }}
       />
+
       <icon.ArrowLeft
+        size={35}
         className="previous dim grow link mh5"
         onClick={() =>
           props.previous(
@@ -35,6 +45,7 @@ const Buttons = props => {
         }
       />
       <icon.ArrowRight
+        size={35}
         className="next dim grow link mh5"
         onClick={() =>
           props.next(
@@ -46,7 +57,7 @@ const Buttons = props => {
         onClick={() => props.share(props.image)}
         className="share grow link w2 ml5"
       />
-    </main>
+    </div>
   );
 };
 
@@ -54,6 +65,7 @@ Buttons.defaultProps = {
   next: () => {},
   previous: () => {},
   like: () => {},
+  dislike: () => {},
   nsfw: () => {},
   share: post => sendToSlack(post.title, post.url, post.id)
 };
@@ -62,6 +74,7 @@ Buttons.propTypes = {
   next: PropTypes.func.isRequired,
   previous: PropTypes.func.isRequired,
   like: PropTypes.func.isRequired,
+  dislike: PropTypes.func.isRequired,
   nsfw: PropTypes.func.isRequired,
   share: PropTypes.func.isRequired
 };
