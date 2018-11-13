@@ -19,7 +19,7 @@ const Buttons = props => {
       <h1 className="mh1">{props.likes[id]}</h1>{" "}
       <icon.ThumbsDown
         size={35}
-        className="dislike grow mr1"
+        className="dislike grow ml5"
         onClick={() => props.dislike(props.image.id)}
       />
       <h1 className="mh1">{props.dislikes[id]}</h1>
