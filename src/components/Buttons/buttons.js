@@ -13,10 +13,10 @@ const Buttons = props => {
       {" "}
       <icon.ThumbsUp
         size={35}
-        className="like grow na1 "
+        className="like grow mr7"
         onClick={() => props.like(props.image.id)}
       />
-      <h1 className="mh1">{props.likes[id]}</h1>{" "}
+      <h1 className="na1">{props.likes[id]}</h1>{" "}
       <icon.ThumbsDown
         size={35}
         className="dislike grow ml5"
