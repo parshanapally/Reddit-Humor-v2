@@ -3,27 +3,26 @@ import PropTypes from "prop-types";
 import sendToSlack from "../../utils/postToSlack";
 import * as icon from "react-feather";
 import "./buttons.css";
+import { isNode } from "postcss-selector-parser";
 
 const Buttons = props => {
   const id = props.image && props.image.id;
 
   return (
     <div className="menu">
+      {" "}
       <icon.ThumbsUp
         size={35}
-        className="like grow mr1"
+        className="like grow na1"
         onClick={() => props.like(props.image.id)}
       />
-
-      <h1 className="mh1">{props.likes[id]}</h1>
-
+      <h1 className="mh1">{props.likes[id]}</h1>{" "}
       <icon.ThumbsDown
         size={35}
         className="dislike grow mr1"
         onClick={() => props.dislike(props.image.id)}
       />
       <h1 className="mh1">{props.dislikes[id]}</h1>
-
       <icon.AlertTriangle
         size={35}
         className="nsfw grow link mh5"
@@ -34,7 +33,6 @@ const Buttons = props => {
           );
         }}
       />
-
       <icon.ArrowLeft
         size={35}
         className="previous dim grow link mh5"
